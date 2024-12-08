@@ -1,6 +1,6 @@
 # Terraform Provider Configuration: google
 provider "google" {
-  project = "gcplearn9"
+  project = "fluid-axis-444106-d7"
   region = "us-central1"
 }
 
