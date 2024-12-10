@@ -11,7 +11,7 @@ variable "zone_machine_map" {
 resource "google_compute_instance" "myapp1" {
   # Meta-Argument: for_each
   for_each = var.zone_machine_map
-  name         = "myapp1-vm-${each.key}"
+  name         = "myapp1-vm-${each.value}" # you can also use each.value if you want to have the machine type in the instance name
   machine_type = each.value
   zone         = each.key
   tags = [

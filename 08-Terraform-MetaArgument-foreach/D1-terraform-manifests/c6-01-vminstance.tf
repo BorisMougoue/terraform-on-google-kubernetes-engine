@@ -1,6 +1,8 @@
 # Resource Block: Create a Compute Engine instance
 resource "google_compute_instance" "myapp1" {
   # Meta-Argument: for_each
+  # for_each meta-argument only accept set or map
+  # we use the toset function to transfrom the list into a set
   for_each = toset(data.google_compute_zones.available.names)
   name         = "myapp1-vm-${each.key}"
   machine_type = var.machine_type
