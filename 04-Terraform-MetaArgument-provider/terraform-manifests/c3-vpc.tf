@@ -1,6 +1,6 @@
 # Resource: VPC
 resource "google_compute_network" "myvpc" {
-  project = "gcplearn9"
+  project = "fluid-axis-444106-d7" 
   name = "vpc1"
   auto_create_subnetworks = false   
 }
