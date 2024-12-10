@@ -2,8 +2,8 @@
 resource "google_container_node_pool" "nodepool_1" {
   name       = "${local.name}-node-pool-1"
   location   = var.gcp_region1
-  cluster    = google_container_cluster.gke_cluster.name
-  node_count = 1
+  cluster    = google_container_cluster.gke_cluster.id
+  node_count = 1 # this will create 1 node pro zone in the region
   node_config {
     preemptible  = true
     machine_type = var.machine_type
