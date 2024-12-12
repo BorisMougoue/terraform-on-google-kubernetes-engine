@@ -12,8 +12,8 @@ terraform {
     }      
   }
   backend "gcs" {
-    bucket = "terraform-on-gcp-gke"
-    prefix = "dev/k8s-demo1"    
+    bucket = "terraform-on-gcp-gke-boris"
+    prefix = "dev/k8s-demo1"  # the state file of this project will be stored in the  dev/k8s-demo1 folder of our bucket  
   }  
 }
 
