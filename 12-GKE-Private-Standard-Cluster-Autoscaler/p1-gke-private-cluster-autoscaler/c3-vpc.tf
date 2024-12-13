@@ -9,7 +9,7 @@ resource "google_compute_subnetwork" "mysubnet" {
   name = "${local.name}-${var.gcp_region1}-subnet"
   region = var.gcp_region1
   network = google_compute_network.myvpc.id 
-  private_ip_google_access = true
+  private_ip_google_access = true 
   ip_cidr_range = var.subnet_ip_range
   secondary_ip_range {
     range_name    = "kubernetes-pod-range"

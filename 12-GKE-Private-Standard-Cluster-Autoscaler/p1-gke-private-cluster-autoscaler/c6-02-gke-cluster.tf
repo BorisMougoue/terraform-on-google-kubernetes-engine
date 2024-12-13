@@ -19,12 +19,13 @@ resource "google_container_cluster" "gke_cluster" {
 
   # Private Cluster Configurations
   private_cluster_config {
-    enable_private_endpoint = false
-    enable_private_nodes    = true
-    master_ipv4_cidr_block  = var.master_ip_range
+    enable_private_endpoint = false #means you can access the kube-API server using a public IP
+    enable_private_nodes    = true  # nodes will only have private IP
+    master_ipv4_cidr_block  = var.master_ip_range 
   }
 
   # IP Address Ranges
+  # the values can be harcoded or deduced from the subnet resource
   ip_allocation_policy {
     #cluster_ipv4_cidr_block  = "10.1.0.0/21"
     #services_ipv4_cidr_block = "10.2.0.0/21"
@@ -35,7 +36,7 @@ resource "google_container_cluster" "gke_cluster" {
   # Allow access to Kubernetes master API Endpoint
   master_authorized_networks_config {
     cidr_blocks {
-      cidr_block = "0.0.0.0/0"
+      cidr_block = "0.0.0.0/0" # because it is a public endpoint; you can also restrict access to your company network
       display_name = "entire-internet"
     }
   }

@@ -55,7 +55,7 @@ variable "services_ip_range" {
 }
 
 variable "master_ip_range" {
-  description = "Kubernetes Master IP range"
+  description = "Kubernetes Master IP range" # this is the controlplane IP range
   type = string
   default = "10.13.0.0/28"
 }

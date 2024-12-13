@@ -4,9 +4,10 @@ resource "google_container_node_pool" "linux_nodepool_1" {
   location   = var.gcp_region1
   cluster    = google_container_cluster.gke_cluster.name
   initial_node_count = 1 # the number of nodes to create in each zone
+  # we add the cluster autoscaler to scale node
   autoscaling {
-    min_node_count = 1
-    max_node_count = 3
+    min_node_count = 1 #per region
+    max_node_count = 3 #per region
     location_policy = "ANY"  
   }
   node_config {  
