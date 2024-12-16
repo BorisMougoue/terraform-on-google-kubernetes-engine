@@ -195,13 +195,13 @@ data "terraform_remote_state" "gke" {
 cd 15-GKE-Private-Standard-Cluster-private-endpoint
 
 # Copy files to Bastion VM
-gcloud compute scp --recurse p3-k8sresources-terraform-manifests "hr-dev-bastion-vm:/tmp" --zone "us-central1-a" --tunnel-through-iap --project "gcplearn9"
+gcloud compute scp --recurse p3-k8sresources-terraform-manifests "hr-dev-bastion-vm:/tmp" --zone "us-central1-a" --tunnel-through-iap --project "fluid-axis-444106-d7"
 ```
 
 ## Step-10: Connect to Bastion VM and Verify
 ```t
 # Connect to bastion VM
-gcloud compute ssh --zone "us-central1-a" "hr-dev-bastion-vm" --tunnel-through-iap --project "gcplearn9"
+gcloud compute ssh --zone "us-central1-a" "hr-dev-bastion-vm" --tunnel-through-iap --project "fluid-axis-444106-d7"
 
 # Verify installed software
 gcloud version
@@ -218,13 +218,15 @@ gcloud config list
 gcloud config set project PROJECT_ID
 gcloud config set project gcplearn9
 
-# Configure kubectl cli
+# Configure kubectl cli; you can get this command from your cluster by clicking on connect
+# you use the command to connect to your cluster
 gcloud container clusters get-credentials hr-dev-gke-cluster --region us-central1 --project gcplearn9
 
 # List Kubernetes Nodes
 kubectl get nodes
 
 # These credentials will be used by any library that requests Application Default Credentials (ADC).
+# this command will enable terraform to create resources in the cluster
 gcloud auth application-default login
 
 # Change Directory

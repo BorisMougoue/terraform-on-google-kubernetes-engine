@@ -33,6 +33,7 @@ resource "google_container_cluster" "gke_cluster" {
   }
 
   # Allow access to Kubernetes master API Endpoint
+  # Allow access to the API server from anywhere. For more security we can also allow access from our corporate network
   master_authorized_networks_config {
     cidr_blocks {
       cidr_block = "0.0.0.0/0"
