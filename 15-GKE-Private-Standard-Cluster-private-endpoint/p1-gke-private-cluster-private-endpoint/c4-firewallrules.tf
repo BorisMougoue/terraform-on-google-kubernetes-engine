@@ -9,7 +9,7 @@ resource "google_compute_firewall" "fw_ssh" {
   network       = google_compute_network.myvpc.id 
   priority      = 1000
   #source_ranges = ["0.0.0.0/0"]
-  source_ranges = ["35.235.240.0/20"] # IAP IP Range
+  source_ranges = ["35.235.240.0/20"] # IAP IP Range; we added this range. The IPs will be use to communicate with the bastion host
   target_tags   = ["ssh-tag"]
 }
 

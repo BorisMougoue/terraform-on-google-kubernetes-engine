@@ -1,10 +1,11 @@
-# Resource Block: Reserver Internal IP Address for Bastion Host
+# Resource Block: Reserver Internal IP Address for Bastion Host; internal static IP
 resource "google_compute_address" "bastion_internal_ip" {
   name         = "${local.name}-bastion-internal-ip"
   description  = "Internal IP address reserved for Bastion VM"
   address_type = "INTERNAL"
   region       = var.gcp_region1
   subnetwork   = google_compute_subnetwork.mysubnet.id 
+  # the IP adress "10.128.15.15" is taking from the subnet CIRD range; we reserve 1 IP for the bastion host
   address      = "10.128.15.15"  # Use subnet slicer to understand better https://www.davidc.net/sites/default/subnets/subnets.html
 }
 

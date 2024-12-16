@@ -19,7 +19,7 @@ resource "google_container_cluster" "gke_cluster" {
 
   # Private Cluster Configurations
   private_cluster_config {
-    enable_private_endpoint = true # Enable private endpoint 
+    enable_private_endpoint = true # Enable private endpoint ; this is the only change in this resource change
     enable_private_nodes    = true
     master_ipv4_cidr_block  = var.master_ip_range
   }

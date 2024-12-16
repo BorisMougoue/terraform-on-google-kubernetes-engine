@@ -1,3 +1,4 @@
+# the only change made here is removing the tags by adding a #
 # Resource: GKE Linux Node Pool 
 resource "google_container_node_pool" "linux_nodepool_1" {
   name       = "${local.name}-linux-nodepool-1"
