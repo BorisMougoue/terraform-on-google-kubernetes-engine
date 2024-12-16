@@ -4,7 +4,7 @@ resource "google_container_cluster" "gke_cluster" {
   location = var.gcp_region1
 
   # Autopilot Cluster
-  enable_autopilot = true
+  enable_autopilot = true #this field was added
    
   # Network
   network = google_compute_network.myvpc.self_link
@@ -15,7 +15,7 @@ resource "google_container_cluster" "gke_cluster" {
 
   # Private Cluster Configurations
   private_cluster_config {
-    enable_private_endpoint = false
+    enable_private_endpoint = false # we are not enabling private endpoint
     enable_private_nodes    = true
     master_ipv4_cidr_block  = var.master_ip_range
   }
