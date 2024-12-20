@@ -18,10 +18,10 @@ spec:
         - name: mysql
           image: mysql:8.0
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: dbpassword11
+            - name: MYSQL_ROOT_PASSWORD # when using MySQL in Kubernetes, you need to pass in the root_password as env
+              value: dbpassword11 
           ports:
-            - containerPort: 3306
+            - containerPort: 3306 # this is the port for MySQL
               name: mysql    
           volumeMounts:
             - name: mysql-persistent-storage
@@ -30,9 +30,9 @@ spec:
               mountPath: /docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance                                            
       volumes: 
         - name: mysql-persistent-storage
-          persistentVolumeClaim:
+          persistentVolumeClaim:  # this PVC will automatically provision persistent disks
             claimName: mysql-pv-claim
         - name: usermanagement-dbcreation-script
-          configMap:
+          configMap:   # we are mounting the configMap as a volume
             name: usermanagement-dbcreation-script
 

@@ -14,7 +14,7 @@ spec:
       labels: 
         app: usermgmt-webapp
     spec:
-      initContainers:
+      initContainers: # this initContainers verifies if the DB is available
         - name: init-db
           image: busybox:1.31
           command: ['sh', '-c', 'echo -e "Checking for the availability of MySQL Server deployment"; while ! nc -z mysql 3306; do sleep 1; printf "-"; done; echo -e "  >> MySQL DB Server has started";']      
@@ -26,7 +26,7 @@ spec:
             - containerPort: 8080           
           env:
             - name: DB_HOSTNAME
-              value: "mysql"            
+              value: "mysql"  # this should be the name of the ClusterIP service of the DB          
             - name: DB_PORT
               value: "3306"            
             - name: DB_NAME
@@ -34,4 +34,4 @@ spec:
             - name: DB_USERNAME
               value: "root"            
             - name: DB_PASSWORD
-              value: "dbpassword11"            
+              value: "dbpassword11"    # this password is also define in the DB deployment        

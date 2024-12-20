@@ -7,7 +7,7 @@ data:
     DROP DATABASE IF EXISTS webappdb;
     CREATE DATABASE webappdb; 
 
-
+# this configMap will create Database once the DB pod is created
 # CONFIG MAP
 # 1. A ConfigMap is an API object used to store non-confidential data in 
 # key-value pairs. 

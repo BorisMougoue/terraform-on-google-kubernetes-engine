@@ -1,11 +1,12 @@
+# instead of creating a custom storage class, we can also directly use the GKE storage classes available in the cluster
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata: 
   name: gke-pd-standard-rwo-sc
 provisioner: pd.csi.storage.gke.io
-volumeBindingMode: WaitForFirstConsumer 
-allowVolumeExpansion: true
-reclaimPolicy: Retain 
+volumeBindingMode: WaitForFirstConsumer # the sc will wait for a pod to be created before binding to the pvc
+allowVolumeExpansion: true # this mean that the pd can be increased
+reclaimPolicy: Retain # the pd will be available after the pvc is deleted; another option is "delete"
 parameters:
   type: pd-balanced # Other Options supported are pd-ssd, pd-standard
 
