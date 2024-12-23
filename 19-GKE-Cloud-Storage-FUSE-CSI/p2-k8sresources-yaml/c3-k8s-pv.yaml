@@ -7,11 +7,11 @@ spec:
   - ReadWriteMany
   capacity:
     storage: 5Gi
-  storageClassName: dummy-storage-class
+  storageClassName: dummy-storage-class  # we can use any dummy name here
   mountOptions:
     - implicit-dirs
   csi:
-    driver: gcsfuse.csi.storage.gke.io
-    volumeHandle: gke-object-storage-102
+    driver: gcsfuse.csi.storage.gke.io # this is the most important value
+    volumeHandle: gke-object-storage-101-boris # here you enter the bucket name
     volumeAttributes:
       gcsfuseLoggingSeverity: warning

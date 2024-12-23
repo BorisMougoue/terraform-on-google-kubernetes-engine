@@ -39,8 +39,8 @@ resource "google_sql_database" "mydbschema" {
 resource "google_sql_user" "users" {
   name     = "umsadmin"
   instance = google_sql_database_instance.mydbinstance.name
-  host     = "%"
-  password = "dbpassword11"
+  host     = "%" # % means all host.The host the user can connect from
+  password = "dbpassword11" 
 }
 
 

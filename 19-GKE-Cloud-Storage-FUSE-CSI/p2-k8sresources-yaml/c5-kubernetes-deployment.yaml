@@ -13,7 +13,7 @@ spec:
       labels:
         app: myapp1 
       annotations: 
-        gke-gcsfuse/volumes: "true"        
+        gke-gcsfuse/volumes: "true"        # this annotation is very important. you are telling the pod that you will use the gke-gcsfuse/volumes
     spec:
       serviceAccountName: mydemo1sa    
       containers: 

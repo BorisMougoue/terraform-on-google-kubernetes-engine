@@ -9,5 +9,5 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  volumeName: gcs-fuse-csi-pv
-  storageClassName: dummy-storage-class
+  volumeName: gcs-fuse-csi-pv  # this is name of the pv created earlier
+  storageClassName: dummy-storage-class # this is the name of storage class mentioned in the pv

@@ -1,4 +1,4 @@
-# Firewall Rule: SSH
+# Firewall Rule: SSH . this will enable us to SSH into the instance
 resource "google_compute_firewall" "fw_ssh" {
   name = "fwrule-allow-ssh22"
   allow {
@@ -12,6 +12,9 @@ resource "google_compute_firewall" "fw_ssh" {
   target_tags   = ["ssh-tag"]
 }
 
+# we want to test if a VM in our custom VPC can access the Cloud SQL database
+# that is why we create this VM. 
+#If the connection is sucessful, the kubernetes workload will also be able to access the database
 # Resource Block: Create a single Compute Engine instance
 resource "google_compute_instance" "myapp1" {
   name         = "mysql-client"

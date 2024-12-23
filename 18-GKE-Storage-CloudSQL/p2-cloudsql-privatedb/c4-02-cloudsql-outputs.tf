@@ -12,5 +12,5 @@ output "mydb_user" {
 
 output "mydb_password" {
   value = google_sql_user.users.password
-  sensitive = true
+  sensitive = true # this will hide the password value in the output
 }
