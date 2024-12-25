@@ -11,8 +11,8 @@ spec:
   - backendRefs:
     - name: myapp1-service-v1
       port: 80
-      weight: 50
+      weight: 50 
     - name: myapp1-service-v2
       port: 80
-      weight: 50
+      weight: 50 #usually we send just 5% of the traffic to the new version for testing purpose
            

@@ -5,7 +5,7 @@ metadata:
 spec:
   parentRefs:
   - name: mygateway1-regional
-    sectionName: http
+    sectionName: http # it will be associated to http listener of the gateway
   rules:
   - filters:
     - type: RequestRedirect

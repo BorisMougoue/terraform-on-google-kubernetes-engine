@@ -9,8 +9,8 @@ spec:
     protocol: HTTP
     port: 80
   addresses:
-  - type: NamedAddress
-    value: my-regional-ip1
+  - type: NamedAddress # we can also use the IP adress instead of the name adress
+    value: my-regional-ip1 # the name of the static IP adress created 
 
 ## Documentation Links ##
 # Gateway Address
