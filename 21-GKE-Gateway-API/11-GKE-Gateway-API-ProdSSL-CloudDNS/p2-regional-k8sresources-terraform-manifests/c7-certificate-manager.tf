@@ -1,4 +1,5 @@
 # Resource: Certificate Manager DNS Authorization
+# This will be use to approve the certificate once it is created
 resource "google_certificate_manager_dns_authorization" "myapp1" {
   location    = var.gcp_region1
   name        = "${local.name}-myapp1-dns-authorization"
@@ -27,6 +28,7 @@ resource "google_certificate_manager_certificate" "myapp1" {
 
 
 # Resource: DNS record to be created in DNS zone for DNS Authorization
+# This CNAME will be created in the hosted zone once the certificate is approved
 resource "google_dns_record_set" "myapp1_cname" {
   project      = "kdaida123"
   managed_zone = "${local.dns_managed_zone}"

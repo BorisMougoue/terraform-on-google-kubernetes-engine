@@ -9,7 +9,7 @@ locals {
 
 # Resource: Cloud DNS Record Set for A Record
 resource "google_dns_record_set" "a_record" {
-  project      = "kdaida123"
+  project      = "kdaida123" #the value might be taken from the provider block
   managed_zone = "${local.dns_managed_zone}"
   name         = "${local.mydomain}."
   type         = "A"
