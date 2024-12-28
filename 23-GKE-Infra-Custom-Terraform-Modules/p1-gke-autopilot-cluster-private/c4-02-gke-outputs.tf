@@ -1,4 +1,5 @@
 # Terraform Outputs
+# make sure the outputs come from the module
 output "gke_cluster_name" {
   description = "GKE cluster name"
   value = module.gke_cluster.gke_cluster_name
