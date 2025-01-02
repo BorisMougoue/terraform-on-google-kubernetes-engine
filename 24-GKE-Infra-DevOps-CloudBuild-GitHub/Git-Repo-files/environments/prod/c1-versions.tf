@@ -8,7 +8,7 @@ terraform {
     }
   }
   backend "gcs" {
-    bucket = "terraform-on-gcp-gke"
+    bucket = "terraform-on-gcp-gke-boris"
     prefix = "prod/gke-cluster"    
   }
 }
