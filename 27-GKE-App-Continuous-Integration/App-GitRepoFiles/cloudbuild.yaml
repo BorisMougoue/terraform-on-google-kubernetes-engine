@@ -7,7 +7,7 @@ steps:
   - 'build'
   - '-t'
   - 'us-central1-docker.pkg.dev/$PROJECT_ID/myapps-repository/myapp1:$SHORT_SHA'
-  - '.'
+  - '.' # this indicates the currently directory
 
 # This step pushes the image to Artifact Registry
 # The PROJECT_ID and SHORT_SHA variables are automatically
