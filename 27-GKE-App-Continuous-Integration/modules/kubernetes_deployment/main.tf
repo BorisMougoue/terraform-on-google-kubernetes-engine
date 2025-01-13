@@ -23,7 +23,7 @@ resource "kubernetes_deployment_v1" "myapp1" {
       spec {
         container {
           #image = "us-central1-docker.pkg.dev/GOOGLE_CLOUD_PROJECT/myapps-repository/myapp1:COMMIT_SHA"
-          image = "us-central1-docker.pkg.dev/fluid-axis-444106-d7/myapps-repository/myapp1:988764c"
+          image = "us-central1-docker.pkg.dev/fluid-axis-444106-d7/myapps-repository/myapp1:7a7a2ae"
           name  = "myapp1-container"
           port {
             container_port = 80
